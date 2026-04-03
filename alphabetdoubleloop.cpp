@@ -7,7 +7,7 @@ void display(char ch,int n,char chara){
 	if(ch=='A'|| ch=='a'){
 		for(i=0;i<n;i++){
 			for(j=0;j<n;j++){
-				if(i+j==n/2||(j-i)==n/2||(i>n/2&&(j==0||j==n-1))||i==n/2+1)cout<<chara;
+				if(i+j==n/2||(j-i)==n/2||(i>n/2&&(j==0||j==n-1))||i==n-n/3-1)cout<<chara;
 				else cout<<' ';
 			}
 			cout<<endl;
@@ -103,10 +103,37 @@ void display(char ch,int n,char chara){
 			cout<<endl;
 		}
 	}
+	else if(ch=='M'||ch=='m'){
+		for(i=0;i<n;i++){
+			for(j=0;j<n;j++){
+				if(j==0||j==n-1||(i<n/2+1&&(i==j||n-i-1==j)))cout<<chara;
+				else cout<<" ";
+			}
+			cout<<endl;
+		}
+	}
+	else if(ch=='N'||ch=='n'){
+		for(i=0;i<n;i++){
+			for(j=0;j<n;j++){
+				if(j==0||j==n-1||i==j)cout<<chara;
+				else cout<<" ";
+			}
+			cout<<endl;
+		}
+	}
 	else if(ch=='O' || ch=='o'){
 		for(i=0;i<n;i++){
 			for(j=0;j<n;j++){
 				if(i+j==n/4||j-i==n-n/4-1||i-j==n-n/4-1||2*n-i-j-2==n/4||((i>n/4&&i<n-n/4)&&(j==0||j==n-1))||((j>n/4&&j<n-n/4)&&(i==0||i==n-1)))cout<<chara;
+				else cout<<" ";
+			}
+			cout<<endl;
+		}
+	}
+	else if(ch=='S'|| ch=='s'){
+		for(i=0;i<n;i++){
+			for(j=0;j<n;j++){
+				if(((j>n/4&&j<n-n/4)&&(i==0||i==n-1||i==n/2))||(i<n/2+1&&i-j==n/4)||(j-i==n/4&&i>n/2)||i+j==n/4||(j!=n-1&&j-i==n-n/4-1)||(j!=0&&i-j==n-n/4-1)||2*n-i-j-2==n/4)cout<<chara;
 				else cout<<" ";
 			}
 			cout<<endl;
@@ -125,7 +152,7 @@ void display(char ch,int n,char chara){
 }
 int main(){
 	char ch,chara='@';
-	int n=2*size+3,ch1;
+	int n=4*size+1,ch1;
 	string alpha ="abcdefghijklmnopqrstuvwxyz";
 //	do{
 //		while(1){
