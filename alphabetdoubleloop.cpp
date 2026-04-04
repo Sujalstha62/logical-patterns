@@ -1,9 +1,10 @@
 #include<iostream>
 #include<conio.h>
 #include<string>
+#include<vector>
 using namespace std;
-void display(char ch,int n,char chara){
-	int i,j,t;
+void store(char ch,int n,char chara,vector<string> &arr){
+	int i,j,t=0;
 	if(ch=='A'|| ch=='a'){
 		for(i=0;i<n;i++){
 			for(j=0;j<n;j++){
@@ -12,10 +13,10 @@ void display(char ch,int n,char chara){
 				(j-i)==n/2||   //topright
 				(i>n/2&&(j==0||j==n-1))||//legs
 				i==n-n/3-1 //middle line
-				)cout<<chara;
-				else cout<<' ';
+				)arr[i]+=chara;
+				else arr[i]+=' ';
 			}
-			cout<<endl;
+			arr[i]+=string(n/4,' ');
 		}
 	}
 	else if(ch=='B'|| ch=='b'){
@@ -28,10 +29,10 @@ void display(char ch,int n,char chara){
 				(j-i==n/4&&i>n/2)||//middle down diagonal
 				(j!=n-1&&j-i==n-n/4-1)||//top right corner
 				2*n-i-j-2==n/4//bottom right corner
-				)cout<<chara;
-				else cout<<" ";
+				)arr[i]+=chara;
+				else arr[i]+=' ';
 			}
-			cout<<endl;
+			arr[i]+=string(n/4,' ');
 		}
 	}
 	else if(ch=='C' || ch=='c'){
@@ -45,10 +46,10 @@ void display(char ch,int n,char chara){
 				2*n-i-j-2==n/4||//bottomright
 				((i>n/4&&i<n-n/4)&&(j==0))|| //boundary left line
 				((j>n/4&&j<n-n/4)&&(i==0||i==n-1))//boundary top-down line
-				)cout<<chara;
-				else cout<<" ";
+				)arr[i]+=chara;
+				else arr[i]+=' ';
 			}
-			cout<<endl;
+			arr[i]+=string(n/4,' ');
 		}
 	}
 	else if(ch=='D' || ch=='d'){
@@ -60,10 +61,10 @@ void display(char ch,int n,char chara){
 				((i>n/4&&i<n-n/4)&&j==n-1)||//border right line
 				j<n-n/4&&(i==0||i==n-1)||//border top-down line
 				j==0//left line
-				)cout<<chara;
-				else cout<<" ";
+				)arr[i]+=chara;
+				else arr[i]+=' ';
 			}
-			cout<<endl;
+			arr[i]+=string(n/4,' ');
 		}
 	}
 	else if(ch=='E'|| ch=='e'){
@@ -74,10 +75,10 @@ void display(char ch,int n,char chara){
 				i==0||//topline
 				i==n-1||//bottom line
 				i==n/2//middle line
-				)cout<<chara;
-				else cout<<" ";
+				)arr[i]+=chara;
+				else arr[i]+=' ';
 			}
-			cout<<endl;
+			arr[i]+=string(n/4,' ');
 		}
 	}
 	else if(ch=='F'||ch=='f'){
@@ -87,10 +88,10 @@ void display(char ch,int n,char chara){
 				j==0||//left line
 				i==0||//top line
 				i==n/2//middle line
-				)cout<<chara;
-				else cout<<" ";
+				)arr[i]+=chara;
+				else arr[i]+=' ';
 			}
-			cout<<endl;
+			arr[i]+=string(n/4,' ');
 		}
 	}
 	else if(ch=='G' || ch=='g'){
@@ -104,10 +105,10 @@ void display(char ch,int n,char chara){
 				((i>n/4&&i<n-n/4)&&(j==0))||//border left line
 				((j>n/4&&j<n-n/4)&&(i==0||i==n-1))||//border top-down line
 				i==n-n/4-1&&j>n/2//middle G line
-				)cout<<chara;
-				else cout<<" ";
+				)arr[i]+=chara;
+				else arr[i]+=' ';
 			}
-			cout<<endl;
+			arr[i]+=string(n/4,' ');
 		}
 	}
 	else if(ch=='H'|| ch=='h'){
@@ -117,10 +118,10 @@ void display(char ch,int n,char chara){
 				j==0||//left line
 				j==n-1||//right line
 				i==n/2//bridge
-				)cout<<chara;
-				else cout<<" ";
+				)arr[i]+=chara;
+				else arr[i]+=' ';
 			}
-			cout<<endl;
+			arr[i]+=string(n/4,' ');
 		}
 	}
 	else if(ch=='I'||ch=='i'){
@@ -130,10 +131,10 @@ void display(char ch,int n,char chara){
 				i==0||//top line
 				i==n-1||//bottom line
 				j==n/2//middle line
-				)cout<<chara;
-				else cout<<" ";
+				)arr[i]+=chara;
+				else arr[i]+=' ';
 			}
-			cout<<endl;
+			arr[i]+=string(n/4,' ');
 		}
 	}
 	else if(ch=='J'||ch=='j'){
@@ -143,10 +144,10 @@ void display(char ch,int n,char chara){
 				i==0||//top line
 				j==n/2||//middle line
 				i-j==n/2//bottom left  diagonal
-				)cout<<chara;
-				else cout<<" ";
+				)arr[i]+=chara;
+				else arr[i]+=' ';
 			}
-			cout<<endl;
+			arr[i]+=string(n/4,' ');
 		}
 	}
 	else if(ch=='K'||ch=='k'){
@@ -157,10 +158,10 @@ void display(char ch,int n,char chara){
 				2*i-j==n-1||//bottom diagonal
 				2*i+j==n-1||//upper diagonal
 				i==n/2&&j==1//middle connection
-				)cout<<chara;
-				else cout<<" ";
+				)arr[i]+=chara;
+				else arr[i]+=' ';
 			}
-			cout<<endl;
+			arr[i]+=string(n/4,' ');
 		}
 	}
 	else if(ch=='L'||ch=='l'){
@@ -169,10 +170,10 @@ void display(char ch,int n,char chara){
 				if(
 				j==0||//left line
 				i==n-1//bottom line
-				)cout<<chara;
-				else cout<<" ";
+				)arr[i]+=chara;
+				else arr[i]+=' ';
 			}
-			cout<<endl;
+			arr[i]+=string(n/4,' ');
 		}
 	}
 	else if(ch=='M'||ch=='m'){
@@ -182,10 +183,10 @@ void display(char ch,int n,char chara){
 				j==0||//left line
 				j==n-1||//right line
 				(i<n/2+1&&(i==j||n-i-1==j))//border diagonals
-				)cout<<chara;
-				else cout<<" ";
+				)arr[i]+=chara;
+				else arr[i]+=' ';
 			}
-			cout<<endl;
+			arr[i]+=string(n/4,' ');
 		}
 	}
 	else if(ch=='N'||ch=='n'){
@@ -195,10 +196,10 @@ void display(char ch,int n,char chara){
 				j==0||//left line
 				j==n-1||//rightline
 				i==j//diagonal
-				)cout<<chara;
-				else cout<<" ";
+				)arr[i]+=chara;
+				else arr[i]+=' ';
 			}
-			cout<<endl;
+			arr[i]+=string(n/4,' ');
 		}
 	}
 	else if(ch=='O' || ch=='o'){
@@ -211,10 +212,10 @@ void display(char ch,int n,char chara){
 				2*n-i-j-2==n/4||//bottom righ corner
 				((i>n/4&&i<n-n/4)&&(j==0||j==n-1))||//border left right line
 				((j>n/4&&j<n-n/4)&&(i==0||i==n-1))//border top bottom line
-				)cout<<chara;
-				else cout<<" ";
+				)arr[i]+=chara;
+				else arr[i]+=' ';
 			}
-			cout<<endl;
+			arr[i]+=string(n/4,' ');
 		}
 	}
 	else if(ch=='P'|| ch=='p'){
@@ -225,10 +226,10 @@ void display(char ch,int n,char chara){
 				(j<n-n/4&&(i==0||i==n/2))||//border top middle line
 				(i<n/2&&i+j==n+n/4-1)||//middle up diagonal
 				(j!=n-1&&j-i==n-n/4-1)//top right corner
-				)cout<<chara;
-				else cout<<" ";
+				)arr[i]+=chara;
+				else arr[i]+=' ';
 			}
-			cout<<endl;
+			arr[i]+=string(n/4,' ');
 		}
 	}
 	else if(ch=='Q' || ch=='q'){
@@ -242,10 +243,10 @@ void display(char ch,int n,char chara){
 				((i>n/4&&i<n-n/4)&&(j==0||j==n-1))||//border left right line
 				((j>n/4&&j<n-n/4)&&(i==0||i==n-1))||//border top bottom line
 				(i>n/2&&i==j)//diagonal
-				)cout<<chara;
-				else cout<<" ";
+				)arr[i]+=chara;
+				else arr[i]+=' ';
 			}
-			cout<<endl;
+			arr[i]+=string(n/4,' ');
 		}
 	}
 	else if(ch=='R'|| ch=='r'){
@@ -257,10 +258,10 @@ void display(char ch,int n,char chara){
 				(i<n/2&&i+j==n+n/4-1)||//middle up diagonal
 				(j!=n-1&&j-i==n-n/4-1)||//top right corner
 				(i>n/2-1&&i==j)//border diagonal
-				)cout<<chara;
-				else cout<<" ";
+				)arr[i]+=chara;
+				else arr[i]+=' ';
 			}
-			cout<<endl;
+			arr[i]+=string(n/4,' ');
 		}
 	}
 	else if(ch=='S'|| ch=='s'){
@@ -274,10 +275,10 @@ void display(char ch,int n,char chara){
 				(j!=n-1&&j-i==n-n/4-1)||//top right corner
 				(j!=0&&i-j==n-n/4-1)||//bottm left corner
 				2*n-i-j-2==n/4//bottom right corner
-				)cout<<chara;
-				else cout<<" ";
+				)arr[i]+=chara;
+				else arr[i]+=' ';
 			}
-			cout<<endl;
+			arr[i]+=string(n/4,' ');
 		}
 	}
 	else if(ch=='T'||ch=='t'){
@@ -286,10 +287,10 @@ void display(char ch,int n,char chara){
 				if(
 				i==0||//top line
 				j==n/2//middle line
-				)cout<<chara;
-				else cout<<" ";
+				)arr[i]+=chara;
+				else arr[i]+=' ';
 			}
-			cout<<endl;
+			arr[i]+=string(n/4,' ');
 		}
 	}
 	else if(ch=='U' || ch=='u'){
@@ -300,10 +301,10 @@ void display(char ch,int n,char chara){
 				2*n-i-j-2==n/4||//bottom righ corner
 				(i<n-n/4)&&(j==0||j==n-1)||//border left right line
 				(j>n/4&&j<n-n/4)&&i==n-1//border bottom line
-				)cout<<chara;
-				else cout<<" ";
+				)arr[i]+=chara;
+				else arr[i]+=' ';
 			}
-			cout<<endl;
+			arr[i]+=string(n/4,' ');
 		}
 	}
 	else if(ch=='V'||ch=='v'){
@@ -312,10 +313,10 @@ void display(char ch,int n,char chara){
 				if(
 				i-j==i/2||
 				i-n+j+1==i/2
-				)cout<<chara;
-				else cout<<" ";
+				)arr[i]+=chara;
+				else arr[i]+=' ';
 			}
-			cout<<endl;
+			arr[i]+=string(n/4,' ');
 		}
 	}
 	else if(ch=='W'||ch=='w'){
@@ -325,10 +326,10 @@ void display(char ch,int n,char chara){
 				j==0||//left line
 				j==n-1||//right line
 				(i>n/2-1&&(i==j||n-i-1==j))//border diagonals
-				)cout<<chara;
-				else cout<<" ";
+				)arr[i]+=chara;
+				else arr[i]+=' ';
 			}
-			cout<<endl;
+			arr[i]+=string(n/4,' ');
 		}
 	}
 	else if(ch=='X'||ch=='x'){
@@ -337,10 +338,10 @@ void display(char ch,int n,char chara){
 				if(
 				i==j||//right diagonal
 				n-i-1==j//left diagonal
-				)cout<<chara;
-				else cout<<" ";
+				)arr[i]+=chara;
+				else arr[i]+=' ';
 			}
-			cout<<endl;
+			arr[i]+=string(n/4,' ');
 		}
 	}
 	else if(ch=='Y'||ch=='y'){
@@ -349,10 +350,10 @@ void display(char ch,int n,char chara){
 				if(
 				(i>n/2&&j==n/2)||//border middle line
 				(i<n/2+1&&(i==j||n-i-1==j))//border diagonals
-				)cout<<chara;
-				else cout<<" ";
+				)arr[i]+=chara;
+				else arr[i]+=' ';
 			}
-			cout<<endl;
+			arr[i]+=string(n/4,' ');
 		}
 	}
 	else if(ch=='Z'||ch=='z'){
@@ -362,26 +363,25 @@ void display(char ch,int n,char chara){
 				i==0||//top line
 				i==n-1||//bottom line
 				i==n-j-1//diagonal
-				)cout<<chara;
-				else cout<<" ";
+				)arr[i]+=chara;
+				else arr[i]+=' ';
 			}
-			cout<<endl;
+			arr[i]+=string(n/4,' ');
 		}
 	}
 	else if(ch==' '){
-		for(i=0;i<n/2;i++){
+		for(i=0;i<n;i++){
 			for(j=0;j<n;j++){
-				cout<<" ";
+				arr[i]+=" ";
 			}
-			cout<<endl;
 		}
 	}
-	cout<<endl;
 }
 int main(){
 	char ch,chara='@';
 	int n=n=4*2+1,ch1;
-	string alpha ="welcome";
+	string alpha ="a";
+	vector<string> arr(n); 
 	do{
 		while(1){
 			cout<<"1)Change font size\n"
@@ -410,10 +410,15 @@ int main(){
 				cin.ignore();
 				getline(cin,alpha);
 			}
-			else
-			for(int i=0;i<alpha.length();i++){
-				cout<<endl;
-				display(alpha[i],n,chara);
+			else{
+				arr.clear();
+				arr.resize(n,"");
+				for(int i=0;i<alpha.length();i++){
+					store(alpha[i],n,chara,arr);
+				}
+				for(int i=0;i<n;i++){
+					cout<<arr[i]<<endl;
+				}
 			}
 			cout<<endl;
 		}
